@@ -6,6 +6,7 @@ use Aabadawy\RowCatcher\Contract\RowCatcher as RowCatcherContract;
 use Aabadawy\RowCatcher\Rows\FailureRow;
 use Aabadawy\RowCatcher\Rows\SuccessRow;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
 
 class RowCatcher implements RowCatcherContract
 {
@@ -13,9 +14,31 @@ class RowCatcher implements RowCatcherContract
 
     protected Collection $successes;
 
-    public function startCatching():void
+    protected  int $totalRows;
+
+    protected array|\Countable $rows;
+
+    public function startCatching(array|\Countable $rows):self
     {
+        $this->rows = $rows;
+
+        $this->totalRows = (is_countable($rows)) ? count($rows) : $rows;
+
         $this->init();
+
+        return $this;
+    }
+
+    public function each(callable $callable):void
+    {
+        foreach ($this->rows as $row) {
+            try {
+                $callable($row);
+                $this->catchSuccess($row);
+            } catch (\Throwable $exception) {
+                $this->catchFailure($exception,$row);
+            }
+        }
     }
 
     public function endCatching():void
@@ -43,14 +66,24 @@ class RowCatcher implements RowCatcherContract
         $this->successes->add(new SuccessRow($row));
     }
 
-    public function countFailures():int
+    public function numberOfFailures():int
     {
         return $this->failures->count();
     }
 
-    public function countSuccesses():int
+    public function numberOfSuccesses():int
     {
         return $this->successes->count();
+    }
+
+    public function allSuccess():bool
+    {
+        return $this->numberOfSuccesses() == $this->totalRows;
+    }
+
+    public function allFailed(): bool
+    {
+        return $this->numberOfFailures() == $this->totalRows;
     }
 
     private function init()
