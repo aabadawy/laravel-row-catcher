@@ -14,7 +14,9 @@
             "email": "ahmedbadawy.fcai@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^8.1"
+    },
     "extra": {
         "laravel": {
             "providers": [
