@@ -9,9 +9,9 @@ interface RowCatcher
 
     public function endCatching():void;
 
-    public function catchFailure(\Throwable $exception,mixed $row):void;
+    public function catchFailure(\Throwable $exception,$row = null):void;
 
-    public function catchSuccess(mixed $row):void;
+    public function catchSuccess($row = null):void;
 
     public function getFailures():Collection;
 

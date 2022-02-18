@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'aabadawy\\row-catcher\\' => array($baseDir . '/src'),
+    'Aabadawy\\RowCatcher\\' => array($baseDir . '/src'),
 );

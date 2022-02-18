@@ -31,14 +31,14 @@ class RowCatcher implements RowCatcherContract
         return $this->successes;
     }
     
-    public function catchFailure(\Throwable $throwable,mixed $vars): void
+    public function catchFailure(\Throwable $throwable,$row = null): void
     {
-        $this->failures->add(new FailureRow($throwable,$vars));
+        $this->failures->add(new FailureRow($throwable,$row));
     }
 
-    public function catchSuccess($var):void
+    public function catchSuccess($row = null):void
     {
-        $this->successes->add(new SuccessRow($var));
+        $this->successes->add(new SuccessRow($row));
     }
 
     public function countFailures():int

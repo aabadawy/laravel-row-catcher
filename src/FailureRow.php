@@ -10,7 +10,7 @@ class FailureRow
 
     protected string $exceptionTraceAsString;
     
-    public function __construct(protected \Throwable $exception,protected array $vars)
+    public function __construct(protected \Throwable $exception,protected mixed $row)
     {
         $this->setExceptionTraceAsString($this->exception->getTraceAsString());
         $this->setExceptionMessage($this->exception->getMessage());
@@ -60,8 +60,8 @@ class FailureRow
     /**
      * @return array
      */
-    public function getVars(): array
+    public function getRow(): array
     {
-        return $this->vars;
+        return $this->row;
     }
 }
