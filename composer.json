@@ -1,0 +1,25 @@
+{
+    "name": "aabadawy/row-catcher",
+    "description": "Catch Failures and success rows for iterables",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Aabadawy\\RowCatcher\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "aABadawy",
+            "email": "ahmedbadawy.fcai@gmail.com"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aabadawy\\RowCatcher\\RowCatcherServiceProvider"
+            ]
+        }
+    }
+}
