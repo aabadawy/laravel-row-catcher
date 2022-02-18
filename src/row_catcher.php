@@ -8,5 +8,5 @@ return [
      | so may after catch five failures, fire event which will be responsible to
      | Push some helpfully info to admins about that
      */
-    'min_critical_failures'  => 5,
+    'min_critical_failures'  => 5, //todo make it dynamic with .env
 ];

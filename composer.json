@@ -1,5 +1,5 @@
 {
-    "name": "aabadawy/row-catcher",
+    "name": "aabadawy/laravel-row-catcher",
     "description": "Catch Failures and success rows for iterables",
     "license": "MIT",
     "minimum-stability": "dev",
