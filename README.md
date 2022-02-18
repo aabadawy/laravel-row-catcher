@@ -5,12 +5,20 @@ This package provider a simple way to catch failures and successful rows when wo
 
 ### here is An Example of using it
 
-`$users = User::get();`
+```
+$users = User::get();
 
-`RowCatcher::startCatching($users)->each(fn($user) => $user->sendNewsLaterMail())`
-
+RowCatcher::startCatching($users)->each(fn($user) => $user->sendNewsLaterMail())
+```
 So in the end, This will Catch any failure row and will not stop excuting when any row for some reasons failed
 
 # Requirments
 - laravel 9
 - php 8.1
+
+# installation
+ You can install the package via composer:
+ 
+ ```
+ omposer require aabadawy/laravel-row-catcher
+ ```
