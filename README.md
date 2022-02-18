@@ -20,5 +20,5 @@ So in the end, This will Catch any failure row and will not stop excuting when a
  You can install the package via composer:
  
  ```
- omposer require aabadawy/laravel-row-catcher
+ composer require aabadawy/laravel-row-catcher
  ```
