@@ -23,7 +23,6 @@ So in the end, This will Catch any failure row and will not stop excuting when a
  composer require aabadawy/laravel-row-catcher
  ```
 #### TODO
-- [] Add Test Cases
 - [] complete the documentation
 - [] add causer resolver
 - [] implement registering events (catching finished,catching started,no successes,no failures,FailuresFounded)
