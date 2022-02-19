@@ -3,11 +3,8 @@
 namespace Aabadawy\RowCatcher;
 
 use Aabadawy\RowCatcher\Contract\RowCatcher as RowCatcherContract;
-use Aabadawy\RowCatcher\Rows\FailureRow;
 use Aabadawy\RowCatcher\Rows\RowType;
-use Aabadawy\RowCatcher\Rows\SuccessRow;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Enumerable;
 
 class RowCatcher implements RowCatcherContract
 {
