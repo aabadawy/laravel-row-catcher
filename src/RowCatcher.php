@@ -4,6 +4,7 @@ namespace Aabadawy\RowCatcher;
 
 use Aabadawy\RowCatcher\Contract\RowCatcher as RowCatcherContract;
 use Aabadawy\RowCatcher\Rows\FailureRow;
+use Aabadawy\RowCatcher\Rows\RowType;
 use Aabadawy\RowCatcher\Rows\SuccessRow;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
@@ -158,18 +159,36 @@ class RowCatcher implements RowCatcherContract
     }
 
     /**
+     * init new failure row
      * @param \Throwable $throwable
      * @param $row
      * @return array
      */
     private function failureRow(\Throwable $throwable,$row = null)
     {
-        return ['exception' => $throwable,'row' => $row];
+        $row_factory = $this->row(RowType::Failure,$row);
+
+        return array_merge(['exception' => $throwable,$row_factory],$row_factory);
     }
 
+    /**
+     * init new success row
+     * @param $row
+     * @return array
+     */
     private function successRow($row = null)
     {
-        return ['row' => $row];
+        return $this->row(RowType::Success,$row);
+    }
+
+    /**
+     * @param RowType $rowType
+     * @param $row
+     * @return array
+     */
+    private function row(RowType $rowType, $row = null)
+    {
+        return ['row' => $row,'type' => $rowType];
     }
     //TODO fire event after passed number of failures and passed number of successes if needed
 }
