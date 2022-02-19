@@ -36,6 +36,15 @@ class RowCatcher implements RowCatcherContract
     }
 
     /**
+     * get all registered items in current catching
+     * @return array|\Countable
+     */
+    public function getRegisteredRows():array|\Countable
+    {
+        return $this->rows;
+    }
+
+    /**
      * loop through rows with passed callable
      * @param callable $callable
      * @return void

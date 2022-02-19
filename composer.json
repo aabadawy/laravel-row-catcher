@@ -8,6 +8,11 @@
             "Aabadawy\\RowCatcher\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Aabadawy\\RowCatcher\\Test\\": "tests"
+        }
+    },
     "authors": [
         {
             "name": "aABadawy",
@@ -23,5 +28,9 @@
                 "Aabadawy\\RowCatcher\\RowCatcherServiceProvider"
             ]
         }
+    },
+    "require-dev": {
+        "orchestra/testbench": "8.0.x-dev",
+        "phpunit/phpunit": "9.5.x-dev"
     }
 }
